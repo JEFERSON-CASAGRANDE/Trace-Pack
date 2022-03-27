@@ -1,6 +1,6 @@
 const userService = require('../../services/users/create');
 
-const createUser = async (req, res, next) => {
+const createUser = async (req, res) => {
   try {
     const {
       name, email, password, _id,
@@ -12,7 +12,7 @@ const createUser = async (req, res, next) => {
 
     res.status(201).json(user);
   } catch (error) {
-    next(error);
+    res.status(400).json({ error: error.message });
   }
 };
 

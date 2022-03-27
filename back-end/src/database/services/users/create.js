@@ -1,10 +1,10 @@
 const modelUser = require('../../models/users/create');
-const { emailAlreadyExist } = require('../../../utils/errors/index');
+const { schemaUser } = require('../../../utils/joiValidate');
 
 const create = async ({ name, email, password }) => {
-  const userExist = await modelUser.findUser(email);
-  if (userExist) {
-    return emailAlreadyExist;
+  const { error } = schemaUser.validate({ name, email, password });
+  if (error) {
+    throw new Error(error.details[0].message);
   }
   const { _id } = await modelUser.create({ name, email, password });
 
