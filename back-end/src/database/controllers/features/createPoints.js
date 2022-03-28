@@ -2,7 +2,8 @@ const featureService = require('../../services/features/createPoints');
 
 const createPoint = async (req, res) => {
   try {
-    const point = await featureService.create(req.body);
+    const { name, lat, lng } = req.body;
+    const point = await featureService.create([{ name, lat, lng }]);
 
     res.status(201).json(point);
   } catch (error) {

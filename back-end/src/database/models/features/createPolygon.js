@@ -5,11 +5,8 @@ const create = async (data) => {
   const result = await connectionDb.connection()
     .then((db) => db.collection('features'));
 
-  const point = await result.insertOne(GeoJSON.parse(data, { Point: ['lat', 'lng'] }));
-
-  // console.log('console model', point);
-
-  return point;
+  const polygon = await result.insertOne(GeoJSON.parse(data, { Polygon: ['lat', 'lng'] }));
+  return { polygon };
 };
 
 module.exports = { create };
