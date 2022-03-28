@@ -4,10 +4,12 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
-const usersRoutes = require('../database/routes/users/usersRoutes');
 const loginRouters = require('../database/routes/users/loginRouters');
+const usersRoutes = require('../database/routes/users/usersRoutes');
+const pointRouters = require('../database/routes/features/pointRoutes');
 
-app.use('/cadastro-usuario', usersRoutes);
 app.use('/login', loginRouters);
+app.use('/cadastro-usuario', usersRoutes);
+app.use('/cadastro-ponto', pointRouters);
 
 module.exports = app;
