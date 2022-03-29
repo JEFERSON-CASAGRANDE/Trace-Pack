@@ -2,8 +2,7 @@ const featureService = require('../../services/features/createPolygon');
 
 const createPolygon = async (req, res) => {
   try {
-    const { name, cordinate } = req.body;
-    const polygon = await featureService.create({ name, cordinate });
+    const polygon = await featureService.create(req.body);
 
     res.status(201).json(polygon);
   } catch (error) {

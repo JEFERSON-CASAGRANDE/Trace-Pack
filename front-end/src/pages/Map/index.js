@@ -1,11 +1,22 @@
 import React from 'react';
 import { MapContainer, GeoJSON } from 'react-leaflet';
+import { getAllFeatures } from '../../utils/axios';
 
 function MyMap() {
+  const [features, setFeatures] = React.useState([]);
+
+  React.useEffect(async () => {
+    const { data } = await getAllFeatures();
+    setFeatures(data);
+  }, []);
+
+  features.map((feature) => console.log('feature:', feature));
+  console.log('features:', features);
+
   return (
-    <MapContainer center={[-23.5489, -46.6388]} zoom={13}>
+    <MapContainer style={{ height: '80vh' }} center={[20, 100]} zoom={2}>
       <GeoJSON
-        // data={require('./data/points.json')}
+        data={features.features}
         style={{
           color: '#ff7800',
           weight: 2,
