@@ -11,9 +11,27 @@ export const getAllFeatures = () => {
   }
 };
 
+export const postLogin = (data) => {
+  try {
+    const response = axios.post(`${apiUrl}/login`, data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
 export const createUser = (data) => {
   try {
     const response = axios.post(`${apiUrl}/cadastro-usuario`, data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const createPoints = (data) => {
+  try {
+    const response = axios.post(`${apiUrl}/cadastro-ponto`, data);
     return response;
   } catch (error) {
     return error.response;
