@@ -23,42 +23,39 @@ function Login() {
   };
 
   return (
-    <div className="login">
-      <div className="login__container">
-        <h1>Faça seu login</h1>
-        <form>
-          <Input
-            handleChange={handleChange}
-            value={loginData.email}
-            text="E-mail"
-            type="text"
-            name="email"
-            placeholder="E-mail"
-          />
-          <Input
-            handleChange={handleChange}
-            value={loginData.password}
-            text="Senha"
-            type="password"
-            name="password"
-            placeholder="Senha"
-          />
-          <Button
-            type="submit"
-            handleClick={handleClick}
-          >
-            Entrar
-
-          </Button>
-          <Button
-            type="button"
-            handleClick={() => navigate('/register')}
-          >
-            Criar cont
-          </Button>
-        </form>
+    <form className="form-login">
+      <h1>Faça seu login</h1>
+      <div className="form-login__input">
+        <Input
+          handleChange={handleChange}
+          value={loginData.email}
+          text="E-mail"
+          type="text"
+          name="email"
+          placeholder="E-mail"
+        />
+        <Input
+          handleChange={handleChange}
+          value={loginData.password}
+          text="Senha"
+          type="password"
+          name="password"
+          placeholder="Senha"
+        />
       </div>
-    </div>
+      <div className="form-login__button">
+        <Button
+          type="submit"
+          text="Entrar"
+          handleClick={handleClick}
+        />
+        <Button
+          type="button"
+          text="Registrar"
+          handleClick={() => navigate('/cadastro-usuario')}
+        />
+      </div>
+    </form>
   );
 }
 

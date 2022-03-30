@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Register from './pages/Register/user';
 import MyMap from './pages/Map';
 import RegisterPonto from './pages/Register/points';
+import RegisterPolygons from './pages/Register/polygons';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/cadastro-usuario" element={<Register />} />
       <Route exact path="/cadastro-ponto" element={<RegisterPonto />} />
+      <Route exact path="/cadastro-poligono" element={<RegisterPolygons />} />
       <Route exact path="/map" element={<MyMap />} />
     </Routes>
   );

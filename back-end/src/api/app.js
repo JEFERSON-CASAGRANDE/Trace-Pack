@@ -15,7 +15,7 @@ const featuresRouters = require('../database/routes/features/featuresRoutes');
 app.use('/login', loginRouters);
 app.use('/cadastro-usuario', usersRoutes);
 app.use('/cadastro-ponto', pointRouters);
-app.use('/cadastro-poligon', polygonRouters);
+app.use('/cadastro-poligono', polygonRouters);
 app.use('/features', featuresRouters);
 
 module.exports = app;

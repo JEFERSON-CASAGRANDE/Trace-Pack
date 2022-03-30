@@ -37,3 +37,12 @@ export const createPoints = (data) => {
     return error.response;
   }
 };
+
+export const createPolygons = (data) => {
+  try {
+    const response = axios.post(`${apiUrl}/cadastro-poligono`, data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};

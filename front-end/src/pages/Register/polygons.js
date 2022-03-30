@@ -1,16 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createPoints } from '../../utils/axios';
+import { createPolygons } from '../../utils/axios';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 
-function RegisterPonto() {
+function RegisterPolygons() {
   const navigate = useNavigate();
   const [listRegisters, setListRegisters] = React.useState([]);
   const [registerData, setRegisterData] = React.useState({
     name: '',
-    lat: '',
-    lng: '',
+    polygon: [[]],
   });
 
   const handleChange = ({ target: { name, value } }) => {
@@ -22,15 +21,14 @@ function RegisterPonto() {
     setListRegisters([...listRegisters, registerData]);
     setRegisterData({
       name: '',
-      lat: '',
-      lng: '',
+      polygon: [[]],
     });
   };
 
   console.log(listRegisters);
 
   const handleClick = async () => {
-    const response = await createPoints(listRegisters);
+    const response = await createPolygons(listRegisters);
     if (response.status === 201) {
       navigate('/map');
     }
@@ -39,31 +37,23 @@ function RegisterPonto() {
   return (
     <div className="login">
       <div className="login__container">
-        <h1>Cadastre os pontos</h1>
+        <h1>Cadastre os poligonos</h1>
         <form>
           <Input
             handleChange={handleChange}
             name="name"
             value={registerData.name}
-            text="Name: "
+            text="Nome: "
             type="text"
             placeholder="Nome"
           />
           <Input
-            name="lat"
+            name="polygon"
             handleChange={handleChange}
-            value={registerData.lat}
-            text="latitude: "
+            value={registerData.polygon}
+            text="Poligono: "
             type="text"
-            placeholder="latitude"
-          />
-          <Input
-            name="lng"
-            handleChange={handleChange}
-            value={registerData.lng}
-            text="longitude: "
-            type="text"
-            placeholder="longitute"
+            placeholder="poligono"
           />
           <Button
             type="submit"
@@ -71,7 +61,7 @@ function RegisterPonto() {
             handleClick={handleAddItemList}
           />
         </form>
-        <h3>Pontos definidos:</h3>
+        <h3>Poligonos definidos:</h3>
         {listRegisters.map((item) => (
           <div key={item.name}>
             <p>
@@ -102,4 +92,4 @@ function RegisterPonto() {
   );
 }
 
-export default RegisterPonto;
+export default RegisterPolygons;

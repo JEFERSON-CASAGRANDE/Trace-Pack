@@ -24,43 +24,38 @@ function Register() {
   };
 
   return (
-    <div className="login">
-      <div className="login__container">
-        <h1>Faça seu cadastro</h1>
-        <form>
-          <Input
-            handleChange={handleChange}
-            value={registerData.name}
-            text="name"
-            type="text"
-            name="name"
-            placeholder="Name"
-          />
-          <Input
-            handleChange={handleChange}
-            value={registerData.email}
-            text="E-mail"
-            type="text"
-            name="email"
-            placeholder="E-mail"
-          />
-          <Input
-            handleChange={handleChange}
-            value={registerData.password}
-            text="Senha"
-            type="password"
-            name="password"
-            placeholder="Senha"
-          />
-          <Button
-            type="submit"
-            handleClick={handleClick}
-          >
-            Cadastrar
-          </Button>
-        </form>
-      </div>
-    </div>
+    <form className="form-register">
+      <h1>Faça seu cadastro</h1>
+      <Input
+        handleChange={handleChange}
+        value={registerData.name}
+        text="Nome"
+        type="text"
+        name="name"
+        placeholder="Nome"
+      />
+      <Input
+        handleChange={handleChange}
+        value={registerData.email}
+        text="E-mail"
+        type="text"
+        name="email"
+        placeholder="E-mail"
+      />
+      <Input
+        handleChange={handleChange}
+        value={registerData.password}
+        text="Senha"
+        type="password"
+        name="password"
+        placeholder="Senha"
+      />
+      <Button
+        type="submit"
+        text="Cadastrar"
+        handleClick={handleClick}
+      />
+    </form>
 
   );
 }
