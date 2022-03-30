@@ -37,68 +37,65 @@ function RegisterPonto() {
   };
 
   return (
-    <div className="login">
-      <div className="login__container">
+    <div className="point__container">
+      <form className="form">
         <h1>Cadastre os pontos</h1>
-        <form>
-          <Input
-            handleChange={handleChange}
-            name="name"
-            value={registerData.name}
-            text="Name: "
-            type="text"
-            placeholder="Nome"
-          />
-          <Input
-            name="lat"
-            handleChange={handleChange}
-            value={registerData.lat}
-            text="latitude: "
-            type="text"
-            placeholder="latitude"
-          />
-          <Input
-            name="lng"
-            handleChange={handleChange}
-            value={registerData.lng}
-            text="longitude: "
-            type="text"
-            placeholder="longitute"
-          />
-          <Button
-            type="submit"
-            text="Adcionar"
-            handleClick={handleAddItemList}
-          />
-        </form>
-        <h3>Pontos definidos:</h3>
-        {listRegisters.map((item) => (
-          <div key={item.name}>
-            <p>
-              Nome:
-              {' '}
-              {item.name}
-            </p>
-            <p>
-              Latitude:
-              {' '}
-              {item.lat}
-            </p>
-            <p>
-              Longitude:
-              {' '}
-              {item.lng}
-            </p>
-          </div>
-        ))}
+        <Input
+          handleChange={handleChange}
+          name="name"
+          value={registerData.name}
+          text="Name: "
+          type="text"
+          placeholder="Nome"
+        />
+        <Input
+          name="lat"
+          handleChange={handleChange}
+          value={registerData.lat}
+          text="latitude: "
+          type="text"
+          placeholder="latitude"
+        />
+        <Input
+          name="lng"
+          handleChange={handleChange}
+          value={registerData.lng}
+          text="longitude: "
+          type="text"
+          placeholder="longitute"
+        />
         <Button
           type="submit"
-          text="Cadastrar"
-          handleClick={handleClick}
+          text="Adcionar"
+          handleClick={handleAddItemList}
         />
-      </div>
+      </form>
+      <h3>Pontos definidos:</h3>
+      {listRegisters.map((item) => (
+        <div key={item.name}>
+          <p>
+            Nome:
+            {' '}
+            {item.name}
+          </p>
+          <p>
+            Latitude:
+            {' '}
+            {item.lat}
+          </p>
+          <p>
+            Longitude:
+            {' '}
+            {item.lng}
+          </p>
+        </div>
+      ))}
+      <Button
+        type="submit"
+        text="Cadastrar"
+        handleClick={handleClick}
+      />
     </div>
-
   );
 }
 

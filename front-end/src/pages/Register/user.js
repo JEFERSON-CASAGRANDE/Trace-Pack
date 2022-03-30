@@ -24,7 +24,7 @@ function Register() {
   };
 
   return (
-    <form className="form-register">
+    <form className="form">
       <h1>Faça seu cadastro</h1>
       <Input
         handleChange={handleChange}

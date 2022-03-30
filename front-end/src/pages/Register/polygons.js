@@ -35,58 +35,56 @@ function RegisterPolygons() {
   };
 
   return (
-    <div className="login">
-      <div className="login__container">
+    <div className="polygon__container">
+      <form className="form">
         <h1>Cadastre os poligonos</h1>
-        <form>
-          <Input
-            handleChange={handleChange}
-            name="name"
-            value={registerData.name}
-            text="Nome: "
-            type="text"
-            placeholder="Nome"
-          />
-          <Input
-            name="polygon"
-            handleChange={handleChange}
-            value={registerData.polygon}
-            text="Poligono: "
-            type="text"
-            placeholder="poligono"
-          />
-          <Button
-            type="submit"
-            text="Adcionar"
-            handleClick={handleAddItemList}
-          />
-        </form>
-        <h3>Poligonos definidos:</h3>
-        {listRegisters.map((item) => (
-          <div key={item.name}>
-            <p>
-              Nome:
-              {' '}
-              {item.name}
-            </p>
-            <p>
-              Latitude:
-              {' '}
-              {item.lat}
-            </p>
-            <p>
-              Longitude:
-              {' '}
-              {item.lng}
-            </p>
-          </div>
-        ))}
+        <Input
+          handleChange={handleChange}
+          name="name"
+          value={registerData.name}
+          text="Nome: "
+          type="text"
+          placeholder="Nome"
+        />
+        <Input
+          name="polygon"
+          handleChange={handleChange}
+          value={registerData.polygon}
+          text="Poligono: "
+          type="text"
+          placeholder="poligono"
+        />
         <Button
           type="submit"
-          text="Cadastrar"
-          handleClick={handleClick}
+          text="Adcionar"
+          handleClick={handleAddItemList}
         />
-      </div>
+      </form>
+      <h3>Poligonos definidos:</h3>
+      {listRegisters.map((item) => (
+        <div key={item.name}>
+          <p>
+            Nome:
+            {' '}
+            {item.name}
+          </p>
+          <p>
+            Latitude:
+            {' '}
+            {item.lat}
+          </p>
+          <p>
+            Longitude:
+            {' '}
+            {item.lng}
+          </p>
+        </div>
+      ))}
+      <Button
+        type="submit"
+        text="Cadastrar"
+        handleClick={handleClick}
+      />
     </div>
 
   );

@@ -24,8 +24,8 @@ function Login() {
 
   return (
     <form className="form-login">
-      <h1>Faça seu login</h1>
-      <div className="form-login__input">
+      <div className="form">
+        <h1>Faça seu login</h1>
         <Input
           handleChange={handleChange}
           value={loginData.email}
@@ -42,18 +42,18 @@ function Login() {
           name="password"
           placeholder="Senha"
         />
-      </div>
-      <div className="form-login__button">
-        <Button
-          type="submit"
-          text="Entrar"
-          handleClick={handleClick}
-        />
-        <Button
-          type="button"
-          text="Registrar"
-          handleClick={() => navigate('/cadastro-usuario')}
-        />
+        <div className="form-login__button">
+          <Button
+            type="submit"
+            text="Entrar"
+            handleClick={handleClick}
+          />
+          <Button
+            type="button"
+            text="Registrar"
+            handleClick={() => navigate('/cadastro-usuario')}
+          />
+        </div>
       </div>
     </form>
   );

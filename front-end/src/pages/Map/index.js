@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { GeoJSON } from 'react-leaflet';
+import { Map, Marker } from 'pigeon-maps';
 import { getAllFeatures } from '../../utils/axios';
 
 function MyMap() {
@@ -14,21 +15,27 @@ function MyMap() {
   console.log('features:', features);
 
   return (
-    <MapContainer style={{ height: '80vh' }} center={[20, 100]} zoom={2}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {/* <GeoJSON
-        data={features.features}
-        style={{
-          color: '#ff7800',
-          weight: 2,
-          fillColor: '#ff7800',
-          fillOpacity: 0.5,
-        }}
-      /> */}
-    </MapContainer>
+
+    <Map
+      zoom={5}
+      width={1920}
+      height={1080}
+      onViewportChanged={(viewport) => console.log('viewport:', viewport)}
+    >
+      <Marker>
+        <GeoJSON
+          data={features.map((feature) => feature.geometry)}
+          style={{
+            color: '#ff7800',
+            weight: 2,
+            fillColor: '#ff7800',
+            fillOpacity: 0.5,
+          }}
+        />
+
+      </Marker>
+    </Map>
+
   );
 }
 
