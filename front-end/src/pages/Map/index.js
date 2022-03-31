@@ -1,6 +1,6 @@
 import React from 'react';
-import { GeoJSON } from 'react-leaflet';
-import { Map, Marker } from 'pigeon-maps';
+// import { GeoJSON } from 'react-leaflet';
+import { Map, GeoJson } from 'pigeon-maps';
 import { getAllFeatures } from '../../utils/axios';
 
 function MyMap() {
@@ -11,31 +11,21 @@ function MyMap() {
     setFeatures(data);
   }, []);
 
-  features.map((feature) => console.log('feature:', feature));
-  console.log('features:', features);
-
   return (
 
     <Map
       zoom={5}
       width={1920}
       height={1080}
-      onViewportChanged={(viewport) => console.log('viewport:', viewport)}
+      onViewportChanged={(viewport) => console.pop('viewport:', viewport)}
     >
-      <Marker>
-        <GeoJSON
-          data={features.map((feature) => feature.geometry)}
-          style={{
-            color: '#ff7800',
-            weight: 2,
-            fillColor: '#ff7800',
-            fillOpacity: 0.5,
-          }}
+      {features.map((feature) => (
+        <GeoJson
+          key={feature.id}
+          data={feature}
         />
-
-      </Marker>
+      ))}
     </Map>
-
   );
 }
 
