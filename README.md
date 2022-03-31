@@ -18,6 +18,7 @@
   - `cd back-end/`
   - `npm install`
   
+
 3. Rode cada aplicação: 
   - `cd front-end/`
   - `npm start`
@@ -31,3 +32,6 @@ Abra http://localhost:3000 para visualizá-lo em seu navegador.
 - `npm run dev`
 
 O servidor deve rodar na porta 3001
+
+- Obs: O banco utilizado no projeto é MongoDB, verifique se a conexão com o mesmo está estabelecida,
+no banco crie um database com o nome `TracePack` e dentro dele as collections `users` e `features`
