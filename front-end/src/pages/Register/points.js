@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { createPoints } from '../../utils/axios';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
+import NavBar from '../../components/NavBar/NavBar';
 
 function RegisterPonto() {
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ function RegisterPonto() {
 
   return (
     <div className="point__container">
+      <NavBar />
       <form className="form">
         <h1>Cadastre os pontos</h1>
         <Input

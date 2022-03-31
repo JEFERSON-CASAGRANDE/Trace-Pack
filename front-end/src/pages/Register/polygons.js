@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { createPolygons } from '../../utils/axios';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
+import NavBar from '../../components/NavBar/NavBar';
 
 function RegisterPolygons() {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ function RegisterPolygons() {
 
   return (
     <div className="polygon__container">
+      <NavBar />
       <form className="form">
         <h1>Cadastre os poligonos</h1>
         <Input
